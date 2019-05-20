@@ -1,0 +1,11 @@
+<h1>  <%= @recipe.id ? "Edit Recipe" : "Create Recipe" %> </h1>
+<hr />
+<%= form_for @recipe do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, required: true, autofocus: true %>
+  <%= f.label :cuisine %>
+  <%= f.text_field :cuisine, required: true %>
+  <%= f.label :time %>
+  <%= f.number_field :time, required: true %>
+  <%= f.submit %>
+<% end %>

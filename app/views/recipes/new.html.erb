@@ -1,0 +1,16 @@
+<h1>Add Recipe</h1>
+<%= form_with(model: @recipe, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, required: true, placeholder: "Enter Recipe Name" %>
+  </div>
+  <div class="field">
+  <%= f.label :cuisine %>
+  <%= f.text_field :cuisine, required: true, placeholder: "Cuisine" %>
+</div>
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.number_field :time, min: 0, placeholder: "Enter Prep Time" %>
+  </div>
+  <%= f.submit %>
+<% end %>

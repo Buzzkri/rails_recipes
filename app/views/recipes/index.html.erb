@@ -1,0 +1,24 @@
+<h2>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h2>
+<hr />
+<%= link_to "Add Recipe", new_recipe_path, class: "btn blue darken-4" %>
+<h3>Your Recipes</h3>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <div class="row">
+    <div class="col s12 m6"> 
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><%= link_to recipe.title, recipe %></span>
+          <p> <%= recipe.cuisine %> - <%= recipe.time %> </p>
+        </div>
+        <div class="card-action">
+        <%= link_to "Edit", edit_recipe_path(recipe) %>
+
+        <%= link_to "Delete", recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</ul>
+<%= button_to "Log Out", destroy_user_session_path, class: "btn grey darken-2", method: :delete %>
